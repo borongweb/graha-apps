@@ -22,4 +22,5 @@ class EditConsumer extends EditRecord
     {
         return $this->getResource()::getUrl('index');
     }
+    
 }

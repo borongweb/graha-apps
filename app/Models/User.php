@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Consumer::class);
     }
+    
+    public function inventories()
+    {
+        return $this->hasMany(Inventory::class);
+    }
 }

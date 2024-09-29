@@ -12,8 +12,6 @@ class Consumer extends Model
 
     protected $guarded = [];
 
-    protected $table = 'consumers';
-
     public function user()
     {
         return $this->belongsTo(User::class);

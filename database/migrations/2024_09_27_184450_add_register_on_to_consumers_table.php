@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sketches', function (Blueprint $table) {
-            $table->id();
-            $table->string('block');
-            $table->json('code_kavling')->nullable();
-            $table->timestamps();
+        Schema::table('consumers', function (Blueprint $table) {
+            $table->date('register_on')->nullable()->after('file_payment');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sketches');
+        Schema::table('consumers', function (Blueprint $table) {
+            $table->dropColumn('register_on');
+        });
     }
 };
