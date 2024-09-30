@@ -6,12 +6,14 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\Widgets;
 use Filament\PanelProvider;
+use App\Filament\Pages\Auth\Login;
 use Filament\Support\Assets\Theme;
 use Filament\Support\Colors\Color;
 use Rupadana\ApiService\ApiServicePlugin;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
+use Hydrat\TableLayoutToggle\TableLayoutTogglePlugin;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
@@ -19,7 +21,6 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
-use Hydrat\TableLayoutToggle\TableLayoutTogglePlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -34,7 +35,7 @@ class AdminPanelProvider extends PanelProvider
             ->font('Poppins')
             ->brandLogo(asset('logo.png'))
             ->brandLogoHeight('50px')
-            ->login()
+            ->login(Login::class)
             ->colors([
                 'danger' => Color::Rose,
                 'gray' => Color::Gray,
